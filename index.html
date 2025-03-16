@@ -6,17 +6,21 @@
     <title>Template HTML5 - 2 Colonnes</title>
     <link type="text/css" rel="stylesheet" href="style.css">
     <style>
+        /* Общие стили */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f8f8f8;
         }
-        header, nav, main, footer {
+
+        header, nav, footer {
             padding: 20px;
             margin: 10px;
             border: 1px solid #ccc;
+            box-sizing: border-box;
         }
+
         header {
             background-color: #008b8b;
             color: white;
@@ -24,84 +28,96 @@
             font-size: 24px;
             font-weight: bold;
         }
+
         nav {
             background-color: #00b3b3;
-            padding: 10px;
             text-align: center;
         }
+
         nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
+
         nav ul li {
-            display: inline;
+            display: inline-block;
             margin-right: 15px;
             font-weight: bold;
         }
+
         nav ul li a {
             color: white;
             text-decoration: none;
         }
-        main {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-        }
+
+        /* Структура двух колонн */
         .content {
-            width: 70%;
+            width: 70%; /* Основной контент */
+            float: left;
+            box-sizing: border-box;
+            padding: 15px;
         }
+
+        aside {
+            width: 28%; /* Боковая колонка */
+            float: right;
+            box-sizing: border-box;
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+
+        aside h2 {
+        background-color: #00b3b3; /* Оставляем цвет фона */
+        color: white;
+        padding: 10px;
+        margin-top: 0;
+        border: 2px solid #007a7a; /* Рамка вокруг */
+        border-radius: 5px; /* Скруглить углы (по желанию) */
+        text-align: center; /* Выравнивание текста по центру (если нужно) */
+        box-sizing: border-box;
+        }
+
+        /* Сброс float */
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* Стили для article */
         article {
             background-color: white;
             padding: 15px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
         }
+
         article header {
             background-color: #008b8b;
             color: white;
             padding: 10px;
         }
+
         article footer {
             background-color: #c0eaf0;
             color: white;
             padding: 10px;
             text-align: center;
         }
-        aside {
-            width: 25%;
-            background-color: white;
-            padding: 15px;
-            border: 1px solid #ccc;
-        }
-        aside h2 {
-            background-color: #00b3b3;
-            color: white;
-            padding: 10px;
-        }
+
         footer {
-            background-color: #89a6dc;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            width: 500px;
-        }
-        .footer {text-align: center;
-            width: 1350px;  
-        }
-        span {
-            font-weight: bold;
-            color: white;
-        }
-        p{
-        margin: 5px;    
+        background-color: #89a6dc;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+        clear: both; /* Важно: убрать влияние float */
+        margin-top: 20px; /* Можно добавить отступ сверху */
         }
 
-        .blue-box {
-            border: 2px solid lightblue;
-            padding: 10px;
-            display: inline-block;
-        }
     </style>
 </head>
 <body>
@@ -159,31 +175,30 @@
                     <img src="https://github.com/alex-28/tp4-web/blob/main/image/html.png?raw=0" alt="html" width="500" height="500">
                 <footer><a href="https://html5css.ru/tags/default.php">Pour l'information plus pleine</a></footer>
             </article>
-        </div>
-        <div>
+            
             <article>
-            <header>Tutoriel CSS</header>
-            <p>Le CSS (Cascading Style Sheets) est un langage utilisé pour styliser les pages HTML. Il permet de définir la mise en page, les couleurs, les polices, et bien plus encore.</p>                 
+                <header>Tutoriel CSS</header>
+                <p>Le CSS (Cascading Style Sheets) est un langage utilisé pour styliser les pages HTML. Il permet de définir la mise en page, les couleurs, les polices, et bien plus encore.</p>                 
+              
+                <header>Qu’est-ce que le CSS ?</header>
+                <p>CSS est l’acronyme de « Cascading Style Sheet ». Il s’agit d’un langage de feuille de style utilisé pour décrire la présentation d’un document écrit dans un langage de balisage comme le HTML. CSS aide les développeurs Web à contrôler la mise en page et d’autres aspects visuels des pages Web. CSS joue un rôle crucial dans le développement Web moderne en fournissant les outils nécessaires pour créer des sites Web visuellement attrayants, accessibles et réactifs.</p>
+                <header>Avantages de l’utilisation de CSS</header>
+                <p><strong>Conception réactive</strong> - CSS offre des fonctionnalités telles que les requêtes multimédias qui permettent aux développeurs de créer des mises en page réactives qui s’adaptent à différentes tailles d’écran et appareils, garantissant ainsi une expérience utilisateur cohérente.</p>
+                <p><strong>Flexibilité et contrôle</strong> - CSS offre un contrôle précis de la présentation des éléments HTML, permettant aux développeurs de personnaliser la mise en page, la typographie, les couleurs et d’autres propriétés visuelles.</p>
+                <p><strong>Cohérence et réutilisabilité</strong> - Les développeurs peuvent assurer la cohérence de l’ensemble du site Web, en définissant des styles dans un fichier CSS central. Les styles peuvent être réutilisés sur plusieurs pages, ce qui réduit la redondance et facilite les mises à jour.</p>
+                <p><strong>Optimisation des moteurs de recherche (SEO)</strong> - CSS peut être utilisé pour structurer le contenu de manière à améliorer la visibilité des moteurs de recherche.</p>
+                <p><strong>Facilité de maintenance</strong> - Les fichiers CSS centralisés facilitent la maintenance et la mise à jour des styles d’un site Web. Les changements peuvent être appliqués à l’échelle mondiale, ce qui garantit l’uniformité et réduit le risque d’incohérences.</p>
+                <p><strong>Chargement plus rapide des pages</strong> - Les fichiers CSS externes peuvent être mis en cache par les navigateurs, ce qui permet d’accélérer le chargement des pages pour les visites ultérieures sur un site Web. Ce mécanisme de mise en cache réduit la charge du serveur et la consommation de bande passante.</p>
+                <p>Composants de CSS</p>
+                <p>CSS fonctionne en associant des règles à des éléments HTML. Une règle CSS se compose de deux parties principales :</p>
             
-            <header>Qu’est-ce que le CSS ?</header>
-            <p>CSS est l’acronyme de « Cascading Style Sheet ». Il s’agit d’un langage de feuille de style utilisé pour décrire la présentation d’un document écrit dans un langage de balisage comme le HTML. CSS aide les développeurs Web à contrôler la mise en page et d’autres aspects visuels des pages Web. CSS joue un rôle crucial dans le développement Web moderne en fournissant les outils nécessaires pour créer des sites Web visuellement attrayants, accessibles et réactifs.</p>
-            <header>Avantages de l’utilisation de CSS</header>
-            <p><strong>Conception réactive</strong> - CSS offre des fonctionnalités telles que les requêtes multimédias qui permettent aux développeurs de créer des mises en page réactives qui s’adaptent à différentes tailles d’écran et appareils, garantissant ainsi une expérience utilisateur cohérente.</p>
-            <p><strong>Flexibilité et contrôle</strong> - CSS offre un contrôle précis de la présentation des éléments HTML, permettant aux développeurs de personnaliser la mise en page, la typographie, les couleurs et d’autres propriétés visuelles.</p>
-            <p><strong>Cohérence et réutilisabilité</strong> - Les développeurs peuvent assurer la cohérence de l’ensemble du site Web, en définissant des styles dans un fichier CSS central. Les styles peuvent être réutilisés sur plusieurs pages, ce qui réduit la redondance et facilite les mises à jour.</p>
-            <p><strong>Optimisation des moteurs de recherche (SEO)</strong> - CSS peut être utilisé pour structurer le contenu de manière à améliorer la visibilité des moteurs de recherche.</p>
-            <p><strong>Facilité de maintenance</strong> - Les fichiers CSS centralisés facilitent la maintenance et la mise à jour des styles d’un site Web. Les changements peuvent être appliqués à l’échelle mondiale, ce qui garantit l’uniformité et réduit le risque d’incohérences.</p>
-            <p><strong>Chargement plus rapide des pages</strong> - Les fichiers CSS externes peuvent être mis en cache par les navigateurs, ce qui permet d’accélérer le chargement des pages pour les visites ultérieures sur un site Web. Ce mécanisme de mise en cache réduit la charge du serveur et la consommation de bande passante.</p>
-            <p>Composants de CSS</p>
-            <p>CSS fonctionne en associant des règles à des éléments HTML. Une règle CSS se compose de deux parties principales :</p>
-            
-           <div class="blue-box">
-            <p>Un sélecteur qui spécifie le(s) élément(s) HTML à styliser.</p>
-            <p>Bloc de déclaration qui contient une ou plusieurs déclarations séparées par des points-virgules.</p>
-            </div>
-           <p>Chaque déclaration comprend un nom de propriété et une valeur, spécifiant l’aspect de la présentation de l’élément à contrôler.</p>
-            <header>Exemple CSS</header>
-            <p>Juste pour vous donner un peu d’enthousiasme à propos de CSS, voici un exemple d’extrait CSS pour votre référence.</p>
+                <div class="blue-box">
+                <p>Un sélecteur qui spécifie le(s) élément(s) HTML à styliser.</p>
+                <p>Bloc de déclaration qui contient une ou plusieurs déclarations séparées par des points-virgules.</p>
+                </div>
+                <p>Chaque déclaration comprend un nom de propriété et une valeur, spécifiant l’aspect de la présentation de l’élément à contrôler.</p>
+                <header>Exemple CSS</header>
+                <p>Juste pour vous donner un peu d’enthousiasme à propos de CSS, voici un exemple d’extrait CSS pour votre référence.</p>
 
             <img src="https://github.com/alex-28/tp4-web/blob/main/image/css.png?raw=0" alt="css" width="500" height="500">
 
@@ -212,8 +227,8 @@
             <li><strong>Colonnes automatiques :</strong> <code>grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));</code></li>
             <li><strong>Placement d'éléments :</strong> <code>grid-column: 1 / span 2;</code></li>
         </ul>
-    </section>
-    <section class="aside-section">
+            </section>
+            <section class="aside-section">
         <h2>🎨 Astuces et hacks CSS</h2>
         <ul>
             <li><strong>Alignement centré :</strong> <code>display: flex; justify-content: center; align-items: center;</code></li>
@@ -222,8 +237,8 @@
             <li><strong>Arrière-plan flou :</strong> <code>backdrop-filter: blur(10px);</code></li>
             <li><strong>Texte en dégradé :</strong> <code>background: linear-gradient(to right, red, blue); -webkit-background-clip: text; color: transparent;</code></li>
         </ul>
-    </section>
-</aside>
+            </section>
+        </aside>
 
 
 
